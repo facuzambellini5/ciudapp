@@ -1,6 +1,6 @@
 package com.example.ciudapp.models;
 
-import com.example.ciudapp.enums.UsuarioRol;
+import com.example.ciudapp.enums.UserRole;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class User {
   private String password;
 
   @Enumerated(EnumType.STRING)
-  private UsuarioRol role;
+  private UserRole role;
 
   private String email;
   private String recoveryEmail;
@@ -34,7 +34,7 @@ public class User {
       String name,
       String lastName,
       String password,
-      UsuarioRol role,
+      UserRole role,
       String email,
       String recoveryEmail,
       List<EntityPlace> entities) {
@@ -89,11 +89,11 @@ public class User {
     this.password = password;
   }
 
-  public UsuarioRol getRole() {
+  public UserRole getRole() {
     return role;
   }
 
-  public void setRole(UsuarioRol role) {
+  public void setRole(UserRole role) {
     this.role = role;
   }
 

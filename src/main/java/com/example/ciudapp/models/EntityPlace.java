@@ -1,10 +1,14 @@
 package com.example.ciudapp.models;
 
-import com.example.ciudapp.enums.Categorias;
 import com.example.ciudapp.enums.EntityType;
 import jakarta.persistence.*;
 
 import java.util.List;
+
+/**
+ * EntityPlace representa una entidad; negocio, empresa, emprendimiento.
+ * Contiene atributos como nombre, descripcion, etc.
+ */
 
 @Entity
 public class EntityPlace {
@@ -13,8 +17,15 @@ public class EntityPlace {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long idEntidad;
 
+  /**
+   * Cada EntityPlace puede tener muchas publicaciones.
+   * Tiene una List de Post
+   */
   @OneToMany private List<Post> posts;
 
+  /**
+   * Varios EntityPlace solo pueden tener un duenio.
+   */
   @ManyToOne private User owner;
 
   @OneToMany(cascade = CascadeType.ALL)
@@ -29,7 +40,6 @@ public class EntityPlace {
   private List<Event> events;
 
   private String name;
-  private Categorias category;
   private String description;
   private String location;
   private String phone;
@@ -48,7 +58,6 @@ public class EntityPlace {
       List<Schedule> schedules,
       List<Event> events,
       String name,
-      Categorias category,
       String description,
       String location,
       String phone,
@@ -63,7 +72,6 @@ public class EntityPlace {
     this.schedules = schedules;
     this.events = events;
     this.name = name;
-    this.category = category;
     this.description = description;
     this.location = location;
     this.phone = phone;
@@ -122,13 +130,6 @@ public class EntityPlace {
     this.name = name;
   }
 
-  public Categorias getCategory() {
-    return category;
-  }
-
-  public void setCategory(Categorias category) {
-    this.category = category;
-  }
 
   public String getDescription() {
     return description;

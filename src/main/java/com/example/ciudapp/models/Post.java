@@ -1,9 +1,9 @@
 package com.example.ciudapp.models;
 
-import com.example.ciudapp.enums.Categorias;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Post {
@@ -16,7 +16,6 @@ public class Post {
 
   private String title;
   private String description;
-  private Categorias category; // VER
   private LocalDate startDate;
   private LocalDate endDate;
   private String imageUrl;
@@ -28,7 +27,6 @@ public class Post {
       EntityPlace entity,
       String title,
       String description,
-      Categorias category,
       LocalDate startDate,
       LocalDate endDate,
       String imageUrl) {
@@ -36,7 +34,6 @@ public class Post {
     this.entity = entity;
     this.title = title;
     this.description = description;
-    this.category = category;
     this.startDate = startDate;
     this.endDate = endDate;
     this.imageUrl = imageUrl;
@@ -72,14 +69,6 @@ public class Post {
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  public Categorias getCategory() {
-    return category;
-  }
-
-  public void setCategory(Categorias category) {
-    this.category = category;
   }
 
   public LocalDate getStartDate() {

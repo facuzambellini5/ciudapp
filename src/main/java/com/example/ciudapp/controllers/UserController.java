@@ -15,22 +15,22 @@ public class UserController {
 
   // GET POST PUT DELETE
 
-  @PostMapping("/crear")
+  @PostMapping("/save")
   public String createUser(@RequestBody User user) {
     return userService.createUser(user);
   }
 
-  @GetMapping("/traer")
+  @GetMapping("/get")
   public List<User> getUsers() {
     return userService.getUsers();
   }
 
-  @GetMapping("/traer/{idUser}")
+  @GetMapping("/get/{idUser}")
   public User getUserById(@PathVariable Long idUser) {
     return userService.getUserById(idUser);
   }
 
-  @PutMapping("/editar")
+  @PutMapping("/edit")
   public String editUser(@RequestBody User user) {
     return userService.editUser(user);
   }
